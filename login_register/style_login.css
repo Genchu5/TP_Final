@@ -8,6 +8,14 @@
 .animated-btn{
     background-color:transparent;
 }
+.aviso_form{
+    font-size: 15px;
+    color:rgb(255, 0, 0);
+    font-weight: 600;
+    text-align: left;
+    
+    
+}
 
 html{
     background-color: #fff6da;
@@ -40,12 +48,21 @@ a:hover {
 .link:hover {
     color: #c4c3ca;
 }
+.recupero_contra{
+    text-align: left;
+    margin: 0;
+}
+.tc{
+    margin-top:60px;
+}
 p {
     font-weight: 500;
     font-size: 14px;
 }
 h4 {
     font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 35px;
 }
 h6 span{
     padding: 0 20px;
@@ -56,82 +73,34 @@ h6 span{
     padding: 0;
     
 }
-.full-height{
-    min-height: 500px;
-    padding: 0;
-}
-[type="checkbox"]:checked,
-[type="checkbox"]:not(:checked){
-display: none;
-}
-.checkbox:checked + label,
-.checkbox:not(:checked) + label{
-    position: relative;
-    display: block;
-    text-align: center;
-    width: 60px;
-    height: 16px;
-    border-radius: 8px;
-    padding: 0;
-    margin: 10px auto;
-    cursor: pointer;
-    background-color: var(--font-color);
-}
-.checkbox:checked + label:before,
-.checkbox:not(:checked) + label:before{
-    position: absolute;
-    display: block;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    color: var(--font-color);
-    background-color: #020305;
-    font-family: 'unicons';
-    content: '\eb4f';
-    z-index: 20;
-    top: -10px;
-    left: -10px;
-    line-height: 36px;
-    text-align: center;
-    font-size: 24px;
-    transition: all 0.5s ease;
-}
-.checkbox:checked + label:before {
-    transform: translateX(44px) rotate(-270deg);
-}
-.card-3d-wrap {
+.card-3d-wrap-login {
     position: relative;
     width: 440px;
     max-width: 100%;
-    height: 400px;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
+    height: 450px;
+    
     perspective: 800px;
     margin-top: 60px;
+    margin-bottom: 105px;
 }
-.card-3d-wrapper {
-    width: 100%;
-    height: 100%;
-    position:absolute;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    transition: all 600ms ease-out; 
+.card-3d-wrap-register {
+    position: relative;
+    width: 440px;
+    max-width: 100%;
+    height: 525px;
+    
+    perspective: 800px;
+    margin-top: 60px;
+    margin-bottom: 30px;
 }
-.card-front, .card-back {
+.card-front{
     width: 100%;
     height: 100%;
     background-color: #454757;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
+    
     position: absolute;
     border-radius: 6px;
     
-}
-.card-back {
-    transform: rotateY(180deg);
-}
-.checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
-    transform: rotateY(180deg);
 }
 .center-wrap{
     position: absolute;
@@ -183,7 +152,6 @@ input:-webkit-autofill,
 input:-webkit-autofill:focus {
     transition: background-color 0s 600000s, color 0s 600000s !important;
 }
-
 .form-styles:focus,
 .form-styles:active {
     border: none;
