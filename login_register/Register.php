@@ -105,11 +105,13 @@
 
                                           // Liberar conjunto de resultados
                                           mysqli_free_result($vResultado);
+                                          
+                                          mysqli_close($link);
                                        }
                                     }
                                  }
                                  unset($entrada);
-                                 mysqli_close($link)
+                                 
                               ?>
                         
                               <input class="btn mt-4 a_link" type="submit" value="Registrarse" name="entrada">
