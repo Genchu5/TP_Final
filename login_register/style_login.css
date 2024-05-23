@@ -52,11 +52,10 @@ a:hover {
     text-align: left;
     margin: 0;
 }
-.tc{
-    margin-top:60px;
-}
+
+
 p {
-    font-weight: 500;
+    
     font-size: 14px;
 }
 h4 {
@@ -180,6 +179,14 @@ input:-webkit-autofill:focus {
     background-color: #000000;
     color: var(--font-color);
     box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+}
+.btn-alt{
+    background-color: #589D93;
+}
+.tc{
+    margin-top:60px;
+    color: #589D93;
+    font-weight:700;
 }
 /*
 #stars {
