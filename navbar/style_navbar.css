@@ -1,0 +1,36 @@
+.primary{
+    background-color: #589D93;
+    font-size: 25px;
+}
+.logo{
+    max-width:120px;
+}
+/*BOTONES ANIMACION*/
+
+a{
+    text-decoration: none;  
+}
+.animated-btn {   
+    all:initial; 
+    position: relative; 
+    padding: 20px;
+    font-size: 1.4rem;
+    color: black;
+    border: 2px;
+    background-color: #589D93;
+    letter-spacing: 1px;
+    font-family: inherit;
+    transition: all 500ms;  
+    cursor: pointer;
+    user-select: none;
+    display: inline-flex;
+}
+
+.animated-btn:hover {
+    color: white;
+    background-color:transparent;
+    transition-delay: 0.05s;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+
