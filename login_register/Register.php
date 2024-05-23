@@ -108,7 +108,8 @@
                                        }
                                     }
                                  }
-                                 unset($entrada)
+                                 unset($entrada);
+                                 mysqli_close($link)
                               ?>
                         
                               <input class="btn mt-4 a_link" type="submit" value="Registrarse" name="entrada">
