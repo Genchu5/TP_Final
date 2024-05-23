@@ -2,28 +2,13 @@
 
 
 <?php
-    $nombre = $_POST['nombre'];
-    $apellido = $_POST['apellido'];
-    $email = $_POST['email'];
-    $contraseña = $_POST['contraseña'];
+    $nombre = $_GET['nombre'];
+    $apellido = $_GET['apellido'];
+    $email = $_GET['email'];
+    $contraseña = $_GET["contraseña"];
+    
     $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/'; 
     
-    if((strpos($email,"@")) ||  (strpos($email,".com")) ){
-        echo "Invalid email";
-    } else { 
-        echo "valid Password"; 
-    } 
-
-    
-    
-    if (preg_match($pattern, $contraseña)) { 
-        echo "Valid Password"; 
-    } else { 
-        echo "Invalid Password"; 
-    } 
-
-    
-
     include "conexion.php";
 
     //Arma la instrucción SQL y luego la ejecuta

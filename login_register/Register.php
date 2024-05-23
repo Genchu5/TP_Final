@@ -1,3 +1,7 @@
+<?php
+   
+   ob_start()
+?>
 <!doctype html>
 <html lang="es">
 <head >
@@ -63,35 +67,56 @@
                                  <input type="password" class="form-styles" placeholder="Contraseña" name="contraseña">
                                  <i class="input-icon uil uil-lock-alt"></i>
                               </div>
-                              
+                              <?php
+                                 if (isset($_POST['entrada'])) {
+                                    $nombre = ($_POST['nombre']);
+                                    $apellido = ($_POST['apellido']);
+                                    $email = ($_POST['email']);
+                                    $contraseña = $_POST['contraseña'];
+
+                                    $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/'; 
+
+                                    if (empty($nombre) || empty($apellido) || empty($email) || empty($contraseña)) {
+                                       echo "<div class='aviso_form'>Por favor complete todos los campos</div>";
+                                    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                                       echo "<div class='aviso_form'>Por favor ingrese un email válido</div>";
+                                    //} elseif (!preg_match($pattern, $contraseña)) {
+                                       //echo "<div class='aviso_form'>La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula, un número y un carácter especial</div>";
+                                    } else{
+                                       include "conexion.php";
+
+                                       //Arma la instrucción SQL y luego la ejecuta
+                                       $vSql = "SELECT Count(email) as canti FROM usuarios WHERE email='$email'"; //especificar los nombres de los campos que contienen los datos que quiere usar en una consulta.
+                                       $vResultado = mysqli_query($link, $vSql) or die (mysqli_error($link));//envía una única consulta a la base de datos actualmente activa en el servidor asociado con el identificador de enlace
+                                       $vCantUsuarios = mysqli_fetch_assoc($vResultado);//Devuelve un array asociativo que corresponde a la fila recuperada y mueve el puntero de datos interno hacia adelante.
+
+                                       //chequea que no se registren usuarios con el mismo mail;
+                                       if ($vCantUsuarios ['canti']!=0){
+                                          
+                                          echo "<div class='aviso_form'>Un usuario con este email ya existe, inicie sesión</div>";
+                                          
+                                       }
+                                       else {
+                                          $vSql = "INSERT INTO usuarios (ID,Nombre,Apellido,Email,Contraseña,Estado_logico)
+                                          values ('','$nombre','$apellido','$email','$contraseña',1)";
+                                          mysqli_query($link, $vSql) or die (mysqli_error($link));
+                                          //HACER VERIFICACION POR MAIL
+                                          header('location: verificacion_mail.php');
+
+                                          // Liberar conjunto de resultados
+                                          mysqli_free_result($vResultado);
+                                       }
+                                    }
+                                 }
+                                 unset($entrada)
+                              ?>
                         
                               <input class="btn mt-4 a_link" type="submit" value="Registrarse" name="entrada">
                            </form>
-                           <?php
-                              if (isset($_POST['entrada'])) {
-                                 $nombre = trim($_POST['nombre']);
-                                 $apellido = trim($_POST['apellido']);
-                                 $email = trim($_POST['email']);
-                                 $contraseña = $_POST['contraseña'];
-
-                                 $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/'; 
-
-                                 if (empty($nombre) || empty($apellido) || empty($email) || empty($contraseña)) {
-                                    echo "<div class='aviso_form'>Por favor complete todos los campos</div>";
-                                 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                                    echo "<div class='aviso_form'>Por favor ingrese un email válido</div>";
-                                 //} elseif (!preg_match($pattern, $contraseña)) {
-                                    //echo "<div class='aviso_form'>La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula, un número y un carácter especial</div>";
-                                 } else {
-                                    echo "<div class='aviso_form'>Registro exitoso</div>";
-                                    // Aquí puedes agregar el código para guardar los datos en la base de datos
-                                 }
-                              }
-                              unset($entrada)
-                           ?>
-                           <div  class=" tc">
+                           
+                           <div class="tc">
                               <p class="mb-0 mt-4">¿Ya tienes una cuenta?</p>
-                              <a class="btn a_link " href="login.php">Inicia sesión</a>
+                              <a class="btn a_link btn-alt " href="login.php">Inicia sesión</a>
                            </div>
                         </div>  
                      </div>

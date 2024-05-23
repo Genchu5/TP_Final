@@ -62,7 +62,7 @@
                               
                            <div  class=" tc">
                               <p class="mb-0 mt-4">¿No tienes una cuenta? </p>
-                              <a class="btn a_link " href="register.php">Registrate</a>
+                              <a class="btn a_link btn-alt " href="register.php">Registrate</a>
                            </div>
                         </div>  
                      </div>
