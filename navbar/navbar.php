@@ -22,14 +22,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav me-auto">
-                        <a class="animated-btn abajo" href="http://localhost/pruebas_entornos/home.php">Home</a>
+                        <a class="animated-btn abajo" href="http://localhost/TP_Final/home.php">Home</a>
                         <a class="animated-btn abajo" href="#">Locales</a>
                         <a class="animated-btn abajo" href="#">Promos</a>
                         <a class="animated-btn abajo" href="#">Novedades</a>
                         <a class="animated-btn abajo" href="#">Contacto</a>
                     </div>
                     <div class="navbar-nav ms-auto">
-                        <a class="animated-btn abajo" href="http://localhost/pruebas_entornos/login_register/login_register.php">Log in</a>
+                        <a class="animated-btn abajo" href="http://localhost/TP_Final/login_register/login.php">Log in</a>
                     </div>
                 </div>
             </div>
