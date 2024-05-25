@@ -21,7 +21,7 @@
       <div class="container">
          <div class="row full-height justify-content-center">
             <div class="col-12 text-center align-self-center py-5">
-               <div class="card-3d-wrap-login mx-auto">
+               <div class="card-3d-wrap-verif mx-auto">
                   <div class="card-front">
                      <div class="center-wrap">
                         <div class="section text-center">
