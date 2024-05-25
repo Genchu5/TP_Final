@@ -8,9 +8,7 @@
     font-size: 15px;
     color:rgb(255, 0, 0);
     font-weight: 600;
-    text-align: left;
-    
-    
+    text-align: left; 
 }
 html{
     background-color: #fff6da;
@@ -32,10 +30,12 @@ body{
 	font-weight: 300;
 	line-height: 1.7;
 	color: var(--font-color);
-    overflow:scroll;
 }
 a:hover {
 	text-decoration: none;
+}
+.left{
+    text-align: left;
 }
 .link {
     color: var(--font-color);
@@ -74,6 +74,16 @@ h6 span{
     perspective: 800px;
     margin-top: 60px;
     margin-bottom: 115px;
+}
+.card-3d-wrap-register {
+    position: relative;
+    width: 440px;
+    max-width: 100%;
+    height: 535px;
+    
+    perspective: 800px;
+    margin-top: 60px;
+    margin-bottom: 30px;
 }
 .card-3d-wrap-register {
     position: relative;
