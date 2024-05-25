@@ -9,55 +9,42 @@
    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   
-   <!- NAVBAR ->
-   <?php 
-      include "../navbar/navbar.php";
-      
-   ?>
-   
+
    <!- STYLESHEET->
-   <link rel="stylesheet" href="style_login.css?v=<?php echo time(); ?>">
+   <link rel="stylesheet" href="../style_login.css?v=<?php echo time(); ?>">
 
 </head>
 
 <body>
 
-   <div id="stars"></div>
-   <div id="stars2"></div>
-   <div id="stars3"></div>
-
    <div class="section">
       <div class="container">
          <div class="row full-height justify-content-center">
             <div class="col-12 text-center align-self-center py-5">
-               <div class="card-3d-wrap-login mx-auto">
+               <div class="card-3d-wrap-verif mx-auto">
                   <div class="card-front">
                      <div class="center-wrap">
                         <div class="section text-center">
-                           <h4 class="mb-3 pb-3">Hola de nuevo!</h4>
+                           <h4 class="mb-3  left">Verificación</h4>
+                              <p class="left verif_text">Le enviamos un token de verificación a su correo eléctronico, por favor ingreselo asi podemos validar su usuario</p>
+
                                  
-                              <form action="inicio_sesion.php" method="GET">
+                              <form action="verificacion_usuario.php" method="GET">
 
                                  <div class="form-group">
-                                    <input type="email" class="form-styles" placeholder="Email" name="email" >
-                                    <i class="input-icon uil uil-at"></i>
+                                    <input type="email" class="form-styles" placeholder="Token" name="token" >
+                                    <i class="input-icon uil uil-user"></i>
                                  </div>	
 
-                                 <div class="form-group mt-2">
-                                    <input type="password" class="form-styles" placeholder="Contraseña" name="contraseña">
-                                    <i class="input-icon uil uil-lock-alt"></i>
-                                 </div>
-                                 <p class="recupero_contra"><a href="main.php" class="link ">¿Olvidaste tu contraeña?</a></p>
                                  
-                                 <input class="btn mt-4 a_link" type="submit" value="Iniciar sesión" name="entrada">
+                                 <input class="btn mt-4 a_link" type="submit" value="Verificar" name="entrada">
 
                               </form>
                               
                               
                            <div  class=" tc">
-                              <p class="mb-0 mt-4">¿No tienes una cuenta? </p>
-                              <a class="btn a_link btn-alt " href="register.php">Registrate</a>
+                              <p class="mb-0 mt-4">¿No le llego el token? </p>
+                              <a class="btn a_link btn-alt " href="reenviar.php">Reenviar</a>
                            </div>
                         </div>  
                      </div>
