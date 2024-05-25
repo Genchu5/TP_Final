@@ -93,7 +93,12 @@
                                        }
                                        else {
                                           $vSql = "INSERT INTO usuarios (ID,Nombre,Apellido,Email,Contraseña,Estado_logico)
-                                          values ('','$nombre','$apellido','$email','$contraseña',1)";
+                                          values ('','$nombre','$apellido','$email','$contraseña',2)";
+                                          /*
+                                          0 = DADO DE BAJA LOGICA
+                                          1 = ACTIVO
+                                          2 = NO VERIFICADO
+                                           */
                                           mysqli_query($link, $vSql) or die (mysqli_error($link));
                                           //HACER VERIFICACION POR MAIL
                                           header('location: verificacion_usuario\verificacion_usuario.php');
