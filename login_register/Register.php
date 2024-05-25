@@ -44,22 +44,22 @@
                            <form  method="POST" action="register.php">
 
                               <div class="form-group">
-                                 <input type="text" class="form-styles" placeholder="Nombre" name="nombre">
+                                 <input type="text" class="form-styles" placeholder="Nombre" name="nombre" required="">
                                  <i class="input-icon uil uil-user"></i>
                               </div>	
 
                               <div class="form-group mt-2">
-                                 <input type="text" class="form-styles" placeholder="Apellido" name="apellido">
+                                 <input type="text" class="form-styles" placeholder="Apellido" name="apellido" required="">
                                  <i class="input-icon uil uil-user"></i>
                               </div>
                            
                               <div class="form-group mt-2">
-                              <input type="email" class="form-styles" placeholder="Email" name="email" autocomplete="off">
+                              <input type="email" class="form-styles" placeholder="Email" name="email" autocomplete="off" required="">
                                  <i class="input-icon uil uil-at"></i>
                               </div>
                               
                               <div class="form-group mt-2">
-                                 <input type="password" class="form-styles" placeholder="Contraseña" name="contraseña">
+                                 <input type="password" class="form-styles" placeholder="Contraseña" name="contraseña" required="">
                                  <i class="input-icon uil uil-lock-alt"></i>
                               </div>
                               <?php
@@ -69,15 +69,14 @@
                                     $email = ($_POST['email']);
                                     $contraseña = $_POST['contraseña'];
 
-                                    $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/'; 
-
+                                    /*$pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/'; 
+                                    
                                     if (empty($nombre) || empty($apellido) || empty($email) || empty($contraseña)) {
                                        echo "<div class='aviso_form'>Por favor complete todos los campos</div>";
-                                    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                                       echo "<div class='aviso_form'>Por favor ingrese un email válido</div>";
-                                    //} elseif (!preg_match($pattern, $contraseña)) {
-                                       //echo "<div class='aviso_form'>La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula, un número y un carácter especial</div>";
-                                    } else{
+                                    
+                                    } elseif (!preg_match($pattern, $contraseña)) {
+                                       echo "<div class='aviso_form'>La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula, un número y un carácter especial</div>";
+                                    }else{ */
                                        include "conexion.php";
 
                                        //Arma la instrucción SQL y luego la ejecuta
@@ -107,11 +106,11 @@
                                           mysqli_free_result($vResultado);
                                           
                                           mysqli_close($link);
-                                       }
+                                       //}
                                     }
                                  }
                                  unset($entrada);
-                                 
+                                  
                               ?>
                         
                               <input class="btn mt-4 a_link" type="submit" value="Registrarse" name="entrada">
