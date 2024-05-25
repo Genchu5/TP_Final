@@ -26,7 +26,7 @@
                      <div class="center-wrap">
                         <div class="section text-center">
                            <h4 class="mb-3  left">Verificación</h4>
-                              <p class="left">Le enviamos un token de verificación a su correo eléctronico, por favor ingreselo asi podemos validar su usuario</p>
+                              <p class="left verif_text">Le enviamos un token de verificación a su correo eléctronico, por favor ingreselo asi podemos validar su usuario</p>
 
                                  
                               <form action="verificacion_usuario.php" method="GET">
