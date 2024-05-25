@@ -55,7 +55,7 @@
 
                               <div class="form-group mt-2">
                                  <input type="text" class="form-styles" placeholder="Apellido" name="apellido">
-                                 <i class="input-icon uil uil-at"></i>
+                                 <i class="input-icon uil uil-user"></i>
                               </div>
                            
                               <div class="form-group mt-2">
