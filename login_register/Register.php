@@ -73,7 +73,8 @@
                                     
                                     if (empty($nombre) || empty($apellido) || empty($email) || empty($contraseña)) {
                                        echo "<div class='aviso_form'>Por favor complete todos los campos</div>";
-                                    
+                                    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                                       echo "<div class='aviso_form'>Por favor ingrese un email válido</div>";
                                     } elseif (!preg_match($pattern, $contraseña)) {
                                        echo "<div class='aviso_form'>La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula, un número y un carácter especial</div>";
                                     }else{ */
