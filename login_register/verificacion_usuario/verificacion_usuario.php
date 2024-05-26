@@ -43,9 +43,9 @@
                               <?php
                                  include "../conexion.php";
                                  
-                                 require "../../PHPMailer/src/Exception.php";
-                                 require "../../PHPMailer/src/PHPMailer.php";
-                                 require "../../PHPMailer/src/SMTP.php";
+                                 require "PHPMailer/src/Exception.php";
+                                 require "PHPMailer/src/PHPMailer.php";
+                                 require "PHPMailer/src/SMTP.php";
                                  use PHPMailer\PHPMailer\PHPMailer;
                                  use PHPMailer\PHPMailer\Exception;
                                  
@@ -67,8 +67,8 @@
                                     $mailer->isSMTP();
                                     $mailer->Host = 'smtp.gmail.com'; // Servidor SMTP de Gmail
                                     $mailer->SMTPAuth = true;
-                                    $mailer->Username = 'genaro20038@gmail.com'; // Tu correo de Gmail
-                                    $mailer->Password = 'zzpr srul nywp sbpd'; // Tu contraseña de Gmail
+                                    $mailer->Username = ''; // Tu correo de Gmail
+                                    $mailer->Password = ''; // Tu contraseña de Gmail
                                     $mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                                     $mailer->Port = 587; // Puerto SMTP para TLS
 
