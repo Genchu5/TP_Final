@@ -32,7 +32,7 @@
                               <form action="verificacion_usuario.php" method="GET">
 
                                  <div class="form-group">
-                                    <input type="email" class="form-styles" placeholder="Token" name="token" >
+                                    <input type="email" class="form-styles" placeholder="Token" name="token" required="" >
                                     <i class="input-icon uil uil-user"></i>
                                  </div>	
 
@@ -40,7 +40,64 @@
                                  <input class="btn mt-4 a_link" type="submit" value="Verificar" name="entrada">
 
                               </form>
-                              
+                              <?php
+                                 include "../conexion.php";
+                                 
+                                 require "../../PHPMailer/src/Exception.php";
+                                 require "../../PHPMailer/src/PHPMailer.php";
+                                 require "../../PHPMailer/src/SMTP.php";
+                                 use PHPMailer\PHPMailer\PHPMailer;
+                                 use PHPMailer\PHPMailer\Exception;
+                                 
+                                 
+                                 // Consigo el ultimo mail ingresado
+                                 $result = mysqli_query($link,"SELECT  * FROM usuarios ORDER BY  ID DESC LIMIT 1");
+                                 $ultima_fila = mysqli_fetch_assoc($result);
+                                 $email = $ultima_fila['Email'];
+                                 $nombre = $ultima_fila['Nombre'];
+                                 $apellido = $ultima_fila['Apellido'];
+
+                                 $body = "Hola $nombre $apellido,\n\nEste es el cuerpo del mensaje.";
+                                 $asunto = "Correo de prueba";
+
+                                 $mailer = new PHPMailer(true);
+
+                                 try {
+                                    // Configuración del servidor SMTP
+                                    $mailer->isSMTP();
+                                    $mailer->Host = 'smtp.gmail.com'; // Servidor SMTP de Gmail
+                                    $mailer->SMTPAuth = true;
+                                    $mailer->Username = 'genaro20038@gmail.com'; // Tu correo de Gmail
+                                    $mailer->Password = 'zzpr srul nywp sbpd'; // Tu contraseña de Gmail
+                                    $mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                                    $mailer->Port = 587; // Puerto SMTP para TLS
+
+                                    // Configuración del correo
+                                    $mailer->setFrom('shoppingDB@gmail.com', 'Nombre de tu sitio web');
+                                    $mailer->addAddress("genaro20038@gmail.com", "$nombre $apellido");
+                                    $mailer->Subject = "$asunto";
+                                    $mailer->Body = $body;
+
+                                    // Enviar el correo
+                                    if ($mailer->send()) {
+                                          echo 'Correo enviado correctamente.';
+                                    } else {
+                                          echo 'Error al enviar el correo.';
+                                    }
+                                 } catch (Exception $e) {
+                                    echo "Error al enviar el correo: {$mailer->ErrorInfo}";
+                                 }
+                                 
+                                 //$sql = "UPDATE usuarios SET estado_logico='2' WHERE id=$ultima_id";
+                                 /*
+                                 0 = DADO DE BAJA LOGICA
+                                 1 = ACTIVO
+                                 2 = NO VERIFICADO
+                                 */
+
+                                 mysqli_close($link);
+
+                              ?>
                               
                            <div  class=" tc">
                               <p class="mb-0 mt-4">¿No le llego el token? </p>
