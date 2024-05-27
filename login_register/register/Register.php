@@ -16,12 +16,12 @@
    
    <!- NAVBAR ->
    <?php 
-      include "../navbar/navbar.php";
+      include "../../navbar/navbar.php";
       
    ?>
    
    <!- STYLESHEET->
-   <link rel="stylesheet" href="style_login.css?v=<?php echo time(); ?>">
+   <link rel="stylesheet" href="../style_login.css?v=<?php echo time(); ?>">
 
 </head>
 
@@ -78,7 +78,7 @@
                                     } elseif (!preg_match($pattern, $contraseña)) {
                                        echo "<div class='aviso_form'>La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula, un número y un carácter especial</div>";
                                     }else{ */
-                                       include "conexion.php";
+                                       include "../conexion.php";
 
                                        //Arma la instrucción SQL y luego la ejecuta
                                        $vSql = "SELECT Count(email) as canti FROM usuarios WHERE email='$email'"; //especificar los nombres de los campos que contienen los datos que quiere usar en una consulta.
@@ -92,17 +92,23 @@
                                           
                                        }
                                        else {
-                                          $vSql = "INSERT INTO usuarios (ID,Nombre,Apellido,Email,Contraseña,Estado_logico)
-                                          values ('','$nombre','$apellido','$email','$contraseña',2)";
+                                          
+                                          //HACER VERIFICACION POR MAIL
+                                          
+                                          include "email_verificacion.php";
+                                          $vSql = "INSERT INTO usuarios (ID,Nombre,Apellido,Email,Contraseña,Estado_logico,tipo_usuario,token_verif) values ('','$nombre','$apellido','$email','$contraseña',2,'cliente',$token_sistema)";
+                                          mysqli_query($link, $vSql) or die (mysqli_error($link));
+                                          if ($enviado){
+                                             header("Location: verificacion_usuario.php");
+                                          }
+                                          
                                           /*
                                           0 = DADO DE BAJA LOGICA
                                           1 = ACTIVO
                                           2 = NO VERIFICADO
                                            */
-                                          mysqli_query($link, $vSql) or die (mysqli_error($link));
-                                          //HACER VERIFICACION POR MAIL
-                                          header('location: verificacion_usuario\verificacion_usuario.php');
-
+                                          
+                                          
                                           // Liberar conjunto de resultados
                                           mysqli_free_result($vResultado);
                                           
@@ -111,7 +117,7 @@
                                     }
                                  }
                                  unset($entrada);
-                                  
+                                 
                               ?>
                         
                               <input class="btn mt-4 a_link" type="submit" value="Registrarse" name="entrada">
