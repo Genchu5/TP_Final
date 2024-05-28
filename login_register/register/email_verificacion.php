@@ -116,7 +116,7 @@
     // Configuración del correo
     $mail->isHTML(true);
     $mail->setFrom('shoppingDB@gmail.com','ShoppingDB');
-    $mail->addAddress("genaro20038@gmail.com", "$nombre $apellido");
+    $mail->addAddress("$email", "$nombre $apellido");
     $mail->Subject = "$asunto";
     $mail->Body = $body;
 
