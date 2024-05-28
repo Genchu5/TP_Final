@@ -12,12 +12,12 @@
    
    <!- NAVBAR ->
    <?php 
-      include "../navbar/navbar.php";
+      include "../../navbar/navbar.php";
       
    ?>
    
    <!- STYLESHEET->
-   <link rel="stylesheet" href="style_login.css?v=<?php echo time(); ?>">
+   <link rel="stylesheet" href="../style_login_register.css?v=<?php echo time(); ?>">
 
 </head>
 
@@ -57,7 +57,7 @@
                               
                            <div  class=" tc">
                               <p class="mb-0 mt-4">¿No tienes una cuenta? </p>
-                              <a class="btn a_link btn-alt " href="../register/register.php">Registrate</a>
+                              <a class="btn a_link btn-alt " href="../register/register_pagina.php">Registrate</a>
                            </div>
                         </div>  
                      </div>

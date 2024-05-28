@@ -11,7 +11,7 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
    <!- STYLESHEET->
-   <link rel="stylesheet" href="../style_login.css?v=<?php echo time(); ?>">
+   <link rel="stylesheet" href="../style_login_register.css?v=<?php echo time(); ?>">
 
 </head>
 
