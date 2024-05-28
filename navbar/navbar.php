@@ -28,7 +28,7 @@
                         <a class="animated-btn abajo" href="#">Contacto</a>
                     </div>
                     <div class="navbar-nav ms-auto">
-                        <a class="animated-btn abajo" href="http://localhost/TP_Final/login_register/login.php">Log in</a>
+                        <a class="animated-btn abajo" href="http://localhost/TP_Final/login_register/login/login.php">Log in</a>
                     </div>
                 </div>
             </div>

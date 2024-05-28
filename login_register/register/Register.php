@@ -125,7 +125,7 @@
                            
                            <div class="tc">
                               <p class="mb-0 mt-4">¿Ya tienes una cuenta?</p>
-                              <a class="btn a_link btn-alt " href="login.php">Inicia sesión</a>
+                              <a class="btn a_link btn-alt " href="../login/login.php">Inicia sesión</a>
                            </div>
                         </div>  
                      </div>
